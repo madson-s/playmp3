@@ -101,7 +101,7 @@ export default function Login() {
                     <div className="panel right-panel">
                         <div className="content">
                             <h3>Um de nós ?</h3>
-                            <p>Faça o login e não perca tempo para aproveitar suas músicas preferidas</p>
+                            <p>Faça o login e não perca tempo para escuatar suas músicas prediletas</p>
                             <button className="btn transparent" id="sign-in-btn" onClick={showSignin}>Entrar</button>
                         </div>
                         <img src="./playlist.svg" className="image" alt=""/>

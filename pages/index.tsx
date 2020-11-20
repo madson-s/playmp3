@@ -14,7 +14,7 @@ export default function Home() {
       <div className="main">
         <div className="container">
           <div className="content">
-            <h2 className="title">Suas músicas preferidas quando e onde você quiser</h2>
+            <h2 className="title">Suas músicas prediletas quando e onde você quiser</h2>
             <p>Dê <strong>Play</strong> e comece a escutar agora totalmente de graça!</p>
             <Link href="/"><button className="btn">Play</button></Link>
           </div>
