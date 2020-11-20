@@ -18,94 +18,97 @@ function showSignin() {
 
 export default function Login() {
     return (
-        <div className="container">
-            <div className="forms-container">
-                <div className="signin-signup">
-                    <form action="./index.html" className="sign-in-form">
-                        <h2 className="tittle">Sign in</h2>
-                        <div className="input-field">
-                            <i className="fas fa-user"><FontAwesomeIcon icon={faUser} /></i>
-                            <input type="text" placeholder="Username"/>
-                        </div>
-                        <div className="input-field">
-                            <i className="fas fa-lock"><FontAwesomeIcon icon={faLock} /></i>
-                            <input type="password" placeholder="Password"/>
-                        </div>
-                        <input className="btn solid" type="submit" value="Login"/>
-                        
-                        {/* <p className="social-text">Or Sign in with social platforms</p>
-                        <div className="social-media">
-                            <a href="#" className="social-icon">
-                                <i className="fab fa-facebook-f"><FontAwesomeIcon icon={faFacebookF} /></i>
-                            </a>
-                            <a href="#" className="social-icon">
-                                <i className="fab fa-twitter"><FontAwesomeIcon icon={faTwitter} /></i>
-                            </a>
-                            <a href="#" className="social-icon">
-                                <i className="fab fa-google"><FontAwesomeIcon icon={faGoogle} /></i>
-                            </a>
-                            <a href="#" className="social-icon">
-                                <i className="fab fa-linkedin-in"><FontAwesomeIcon icon={faLinkedinIn} /></i>
-                            </a>
-                        </div> */}
-                    </form>
+        <div className="login">
+            <div className="container">
+                <div className="forms-container">
+                    <div className="signin-signup">
+                        <form action="/" className="sign-in-form">
+                            <h2 className="tittle">Fazer login</h2>
+                            <div className="input-field">
+                                <i className="fas fa-user"><FontAwesomeIcon icon={faUser} /></i>
+                                <input type="text" placeholder="Username"/>
+                            </div>
+                            <div className="input-field">
+                                <i className="fas fa-lock"><FontAwesomeIcon icon={faLock} /></i>
+                                <input type="password" placeholder="Password"/>
+                            </div>
+                            <input className="btn solid" type="submit" value="Login" disabled/>
+                            
+                            {/* <p className="social-text">Or Sign in with social platforms</p>
+                            <div className="social-media">
+                                <a href="#" className="social-icon">
+                                    <i className="fab fa-facebook-f"><FontAwesomeIcon icon={faFacebookF} /></i>
+                                </a>
+                                <a href="#" className="social-icon">
+                                    <i className="fab fa-twitter"><FontAwesomeIcon icon={faTwitter} /></i>
+                                </a>
+                                <a href="#" className="social-icon">
+                                    <i className="fab fa-google"><FontAwesomeIcon icon={faGoogle} /></i>
+                                </a>
+                                <a href="#" className="social-icon">
+                                    <i className="fab fa-linkedin-in"><FontAwesomeIcon icon={faLinkedinIn} /></i>
+                                </a>
+                            </div> */}
+                        </form>
 
-                    <form action="./index.html" className="sign-up-form">
-                        <h2 className="tittle">Sign up</h2>
-                        <div className="input-field">
-                            <i className="fas fa-user"><FontAwesomeIcon icon={faUser} /></i>
-                            <input type="text" placeholder="Username"/>
-                        </div>
-                        <div className="input-field">
-                            <i className="fas fa-envelope">
-                                <FontAwesomeIcon icon={faEnvelope} />
-                            </i>
-                            <input type="text" placeholder="Email"/>
-                        </div>
-                        <div className="input-field">
-                            <i className="fas fa-lock"><FontAwesomeIcon icon={faLock} /></i>
-                            <input type="password" placeholder="Password"/>
-                        </div>
-                        <input className="btn solid" type="submit" value="Sign up"/>
-                        
-                        {/* <p className="social-text">Or Sign up with social platforms</p>
-                        <div className="social-media">
-                            <a href="#" className="social-icon">
-                                <i className="fab fa-facebook-f"><FontAwesomeIcon icon={faFacebookF} /></i>
-                            </a>
-                            <a href="#" className="social-icon">
-                                <i className="fab fa-twitter"><FontAwesomeIcon icon={faTwitter} /></i>
-                            </a>
-                            <a href="#" className="social-icon">
-                                <i className="fab fa-google"><FontAwesomeIcon icon={faGoogle} /></i>
-                            </a>
-                            <a href="#" className="social-icon">
-                                <i className="fab fa-linkedin-in"><FontAwesomeIcon icon={faLinkedinIn} /></i>
-                            </a>
-                        </div> */}
-                    </form>
-                </div>
-            </div>
-
-            <div className="panels-container">
-                <div className="panel left-panel">
-                    <div className="content">
-                        <h3>New here ?</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <button className="btn transparent" id="sign-up-btn" onClick={showSignup}>Sign up</button>
+                        <form action="./" className="sign-up-form">
+                            <h2 className="tittle">Fazer Cadastro</h2>
+                            <div className="input-field">
+                                <i className="fas fa-user"><FontAwesomeIcon icon={faUser} /></i>
+                                <input type="text" placeholder="Username"/>
+                            </div>
+                            <div className="input-field">
+                                <i className="fas fa-envelope">
+                                    <FontAwesomeIcon icon={faEnvelope} />
+                                </i>
+                                <input type="text" placeholder="Email"/>
+                            </div>
+                            <div className="input-field">
+                                <i className="fas fa-lock"><FontAwesomeIcon icon={faLock} /></i>
+                                <input type="password" placeholder="Password"/>
+                            </div>
+                            <input className="btn solid" type="submit" value="Cadastrar" disabled/>
+                            
+                            {/* <p className="social-text">Or Sign up with social platforms</p>
+                            <div className="social-media">
+                                <a href="#" className="social-icon">
+                                    <i className="fab fa-facebook-f"><FontAwesomeIcon icon={faFacebookF} /></i>
+                                </a>
+                                <a href="#" className="social-icon">
+                                    <i className="fab fa-twitter"><FontAwesomeIcon icon={faTwitter} /></i>
+                                </a>
+                                <a href="#" className="social-icon">
+                                    <i className="fab fa-google"><FontAwesomeIcon icon={faGoogle} /></i>
+                                </a>
+                                <a href="#" className="social-icon">
+                                    <i className="fab fa-linkedin-in"><FontAwesomeIcon icon={faLinkedinIn} /></i>
+                                </a>
+                            </div> */}
+                        </form>
                     </div>
-                    <img src="./compose_music.svg" className="image" alt=""/>
                 </div>
 
-                <div className="panel right-panel">
-                    <div className="content">
-                        <h3>One of us ?</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                        <button className="btn transparent" id="sign-in-btn" onClick={showSignin}>Sign in</button>
+                <div className="panels-container">
+                    <div className="panel left-panel">
+                        <div className="content">
+                            <h3>Novo aqui ?</h3>
+                            <p>Faça seu cadastro para aproveitar o melhor da música agora mesmo</p>
+                            <button className="btn transparent" id="sign-up-btn" onClick={showSignup}>Cadastrar</button>
+                        </div>
+                        <img src="./compose_music.svg" className="image" alt=""/>
                     </div>
-                    <img src="./playlist.svg" className="image" alt=""/>
+
+                    <div className="panel right-panel">
+                        <div className="content">
+                            <h3>Um de nós ?</h3>
+                            <p>Faça o login e não perca tempo para aproveitar suas músicas preferidas</p>
+                            <button className="btn transparent" id="sign-in-btn" onClick={showSignin}>Entrar</button>
+                        </div>
+                        <img src="./playlist.svg" className="image" alt=""/>
+                    </div>
                 </div>
             </div>
         </div>
+        
     )
 }
