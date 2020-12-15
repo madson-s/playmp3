@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Router from 'next/router'
 import '../../styles/Login.module.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -16,13 +17,35 @@ function showSignin() {
     container.classList.remove("sign-up-mode")
 }
 
+const login = event => {
+    event.preventDefault();
+    const options = {
+        method: 'POST',
+        head: {
+            'Content-Type': 'application/json'
+        }
+    }
+
+    fetch('https://descovidse.tk/login', options)
+    .then(response => {})
+    .then(data => {
+        console.log(data)
+        if(data = 1)
+            Router.push('/music')
+    })
+    
+}
+
 export default function Login() {
     return (
         <div className="login">
+            <Head>
+                <title>Login</title>
+            </Head>
             <div className="container">
                 <div className="forms-container">
                     <div className="signin-signup">
-                        <form action="/" className="sign-in-form">
+                        <form onSubmit={login} className="sign-in-form">
                             <h2 className="tittle">Fazer login</h2>
                             <div className="input-field">
                                 <i className="fas fa-user"><FontAwesomeIcon icon={faUser} /></i>
@@ -32,7 +55,7 @@ export default function Login() {
                                 <i className="fas fa-lock"><FontAwesomeIcon icon={faLock} /></i>
                                 <input type="password" placeholder="Password"/>
                             </div>
-                            <input className="btn solid" type="submit" value="Login" disabled/>
+                            <input className="btn solid" type="submit" value="Login"/>
                             
                             {/* <p className="social-text">Or Sign in with social platforms</p>
                             <div className="social-media">
