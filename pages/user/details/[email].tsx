@@ -15,7 +15,7 @@ export default function Music() {
    
     const router = useRouter()
 
-    const [ user, setUser ] = useState({  email: 'asda', dataNascimento: '', senha: ''})
+    const [ user, setUser ] = useState({  email: '', dataNascimento: '', senha: ''})
     const [ confirmDelete, setConfirmDelete ] = useState(false)
     
     useEffect (() => {

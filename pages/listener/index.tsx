@@ -12,7 +12,8 @@ export async function getStaticProps() {
     const response = await api.get('/ouvintes')
 
     return {
-        props: { listeners: response.data.data }
+        props: { listeners: response.data.data },
+        revalidate: 1,
     }
 }
 
