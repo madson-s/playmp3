@@ -1,0 +1,135 @@
+#form {
+    width: 100%;
+}
+
+#form .container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0 20px;
+}
+
+#form .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+#form .input-field {
+    display: flex;  
+    flex-direction: column;
+    background-color: #fff;
+    max-width: 300px;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+#form .input-field label,
+#form .table-field label {
+    margin-bottom: 5px;
+}
+
+#form .input-field input {
+    padding-left: 10px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+#form .table-field {
+    width: 100%;
+    display: flex;
+    flex-direction: column;  
+}
+
+#form table {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+}
+
+#form table, #form thead, #form tbody, #form tr, #form td {
+    border-spacing: 0;
+}
+
+#form thead {
+    color: #fff;
+    background: #5995fd;
+}
+
+#form tr {
+    width: 100%;
+}
+
+#form tbody tr {
+    border-spacing: 2px;
+}
+
+#form tbody tr:hover {
+    background: #c2d8fd;
+}
+
+#form td {
+    padding:  5px;
+}
+
+#form thead tr .details {
+    color: #5995fd;
+}
+
+#form thead tr .details{
+    width: 75px;
+}
+
+#form tbody tr .details {
+    color: #5995fd;
+}
+
+#form tbody tr .details:hover {
+    cursor: pointer;
+    color: #005eff;
+}
+
+
+#form .btn-content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#form button {
+    width: 100%;
+    max-width: 300px;
+    background-color: #5995FD;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    padding: 10px 0;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+#form button:hover {
+    cursor: pointer;
+    opacity: .8;
+}
+
+#form button:focus, #form input:focus {
+    outline: none;
+}
+
+#form button.secondary {
+    background-color: #fff;
+    color: #5995FD;
+    border: 1px solid #5995FD;
+}
+
+#form p.empty {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    color: rgba(245, 107, 107, 0.904);
+}
+

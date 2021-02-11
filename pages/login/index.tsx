@@ -26,11 +26,8 @@ const login = event => {
         }
     }
 
-    fetch('https://descovidse.tk/login', options)
-    .then(response => {
-        if(response.ok)
-            Router.push('/music')
-    })
+    Router.push('/music')
+
 }
 
 export default function Login() {
