@@ -13,7 +13,8 @@ export async function getStaticProps() {
     const response = await api.get('/usuarios')
     const users = response.data.data
     return {
-        props: { users }
+        props: { users },
+        revalidate: 1,
     }
 }
 

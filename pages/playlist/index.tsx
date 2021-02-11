@@ -12,7 +12,8 @@ export const getStaticProps = async () => {
     const response = await api.get('/playlists')
     const playlists = response.data.data
     return {
-        props: { playlists }
+        props: { playlists },
+        revalidate: 1,
     }
 }
 

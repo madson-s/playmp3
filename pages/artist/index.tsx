@@ -11,7 +11,8 @@ export const getStaticProps = async () => {
     const response = await api.get('/artistas')
     const artists = response.data.data
     return {
-        props: { artists }
+        props: { artists },
+        revalidate: 1,
     }
 }
 
