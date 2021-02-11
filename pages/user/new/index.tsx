@@ -2,26 +2,23 @@ import Head from 'next/head'
 import { useState } from 'react'
 
 import api from '../../../services/api'
+import { redirect } from '../../../services/redirect'
 
 import NavBar from '../../../components/NavBar'
 import Form from '../../../components/Form'
 
 export default function Music() {
 
-    const [ user, setUser ] = useState({  Email: '', DataNascimento: '', Senha: ''})
+    const [ user, setUser ] = useState({  email: '', dataNascimento: '', senha: ''})
 
     function musicUpdate(value) {
         setUser( user => { return { ...user, ...value } } )
     }
 
     async function handleCreate() {
-        const data = { 
-            email: "user@example.com",
-            senha: "string",
-            dataNascimento: "2021-02-11"
-        }
-        const response = await api.post('/usuarios', data)
-        console.log(response)
+        const response = await api.post('/usuarios', user)
+        if(response.data.sucess)
+            redirect('/user')
     }
 
     return (
@@ -41,15 +38,15 @@ export default function Music() {
                 <Form>
                     <div className="input-field">
                         <label htmlFor="mail">E-mail</label>
-                        <input id="mail" type="text" value={user.Email} onChange={ event => musicUpdate({Email: event.target.value})}/>
+                        <input id="mail" type="text" value={user.email} onChange={ event => musicUpdate({email: event.target.value})}/>
                     </div>
                     <div className="input-field">
                         <label htmlFor="name">Senha</label>
-                        <input id="name" type="text" value={user.Senha} onChange={ event => musicUpdate({Senha: event.target.value})}/>
+                        <input id="name" type="text" value={user.senha} onChange={ event => musicUpdate({senha: event.target.value})}/>
                     </div>
                     <div className="input-field">
                         <label htmlFor="lastName">Data Nascimento</label>
-                        <input id="lastName" type="text" value={user.DataNascimento} onChange={ event => musicUpdate({DataNascimento: event.target.value})}/>
+                        <input id="lastName" type="text" value={user.dataNascimento} onChange={ event => musicUpdate({dataNascimento: event.target.value})}/>
                     </div>
                     <button onClick={handleCreate}>Adicionar</button>
                 </Form>

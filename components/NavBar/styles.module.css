@@ -19,7 +19,12 @@
 #header h3 {
     color: #5995fd;
     font-size: 30px;
-  }
+}
+
+#header .logout:hover {
+    cursor: pointer;
+    color: #5995fd;
+}
 
 #header .content {
     width: 100%;

@@ -17,7 +17,7 @@ export default function Navbar( { title, active, btnUrl, btnValue } ) {
             <div className="container">
                 <div className="content">
                     <h3>Play.mp3</h3>
-                    <p onClick={logout}>sair</p>
+                    <p className="logout" onClick={logout}>sair</p>
                 </div>
             </div>
             <div className="container nav">

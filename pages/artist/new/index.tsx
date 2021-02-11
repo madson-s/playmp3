@@ -1,26 +1,30 @@
 import Head from 'next/head'
 import { useState } from 'react'
 
+import api from '../../../services/api'
+import { redirect } from '../../../services/redirect'
+
 import NavBar from '../../../components/NavBar'
 import Form from '../../../components/Form'
 
 export default function NewArtist() {
 
-    const [ artist, setArtist ] = useState({  Email: '', NomeArtistico: '', Biografia: '', AnoFormacao: '' })
+    const [ artist, setArtist ] = useState({  email: '', nomeArtistico: '', biografia: '', anoFormacao: '' })
 
     function artistUpdate(value) {
         setArtist( artist => { return { ...artist, ...value } } )
     }
 
-    function handleCreate() {
-        console.log(artist)
+    async function handleCreate() {
+        const response = await api.post('/artistas', artist)
+        if(response.data.sucess)
+            redirect('/artist')
     }
 
     return (
-        
-        <div className="music">
+        <div className="artist">
             <Head>
-                <title>Musics</title>
+                <title>Play.mp3</title>
             </Head>
             <header>
                 <NavBar title={"Novo Artista"} active={[false, false, true, false, false]} btnValue="" btnUrl=""/>
@@ -29,19 +33,19 @@ export default function NewArtist() {
                 <Form>
                     <div className="input-field">
                         <label htmlFor="mail">E-mail</label>
-                        <input id="mail" type="text" value={artist.Email} onChange={ event => artistUpdate({Email: event.target.value})}/>
+                        <input id="mail" type="text" value={artist.email} onChange={ event => artistUpdate({email: event.target.value})}/>
                     </div>
                     <div className="input-field">
                         <label htmlFor="name">NomeArtistico</label>
-                        <input id="name" type="text" value={artist.NomeArtistico} onChange={ event => artistUpdate({NomeArtistico: event.target.value})}/>
+                        <input id="name" type="text" value={artist.nomeArtistico} onChange={ event => artistUpdate({nomeArtistico: event.target.value})}/>
                     </div>
                     <div className="input-field">
                         <label htmlFor="lastName">Biografia</label>
-                        <input id="lastName" type="text" value={artist.Biografia} onChange={ event => artistUpdate({Biografia: event.target.value})}/>
+                        <input id="lastName" type="text" value={artist.biografia} onChange={ event => artistUpdate({biografia: event.target.value})}/>
                     </div>
                     <div className="input-field">
                         <label htmlFor="phone">AnoFormacao</label>
-                        <input id="phone" type="text" value={artist.AnoFormacao} onChange={ event => artistUpdate({AnoFormacao: event.target.value})}/>
+                        <input id="phone" type="text" value={artist.anoFormacao} onChange={ event => artistUpdate({anoFormacao: event.target.value})}/>
                     </div>
                     <button onClick={handleCreate}>Adicionar</button>
                 </Form>

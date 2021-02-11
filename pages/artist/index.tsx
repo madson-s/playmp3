@@ -1,13 +1,15 @@
 import { InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
 
-import { redirect } from '../../services/redict'
+import api from '../../services/api'
+import { redirect } from '../../services/redirect'
 
 import NavBar from '../../components/NavBar'
 import Table from '../../components/Table'
 
 export const getStaticProps = async () => {
-    const artists = [{  Email: 'asdasd', NomeArtistico: 'asdas', Biografia: 'asdasdasd', AnoFormacao: 'asdasdasdas' }] 
+    const response = await api.get('/artistas')
+    const artists = response.data.data
     return {
         props: { artists }
     }
@@ -37,14 +39,13 @@ export default function Artist({ artists }: InferGetStaticPropsType<typeof getSt
                     <tbody>
                         {artists.map( artist => { return ( 
                             <tr>
-                                <td>{artist.Email}</td>
-                                <td>{artist.NomeArtistico}</td>
-                                <td>{artist.Biografia}</td>
-                                <td>{artist.AnoFormacao}</td>
-                                <td className="details" onClick={ e => redirect('/artist/details/id')}>Detalhes</td>
+                                <td>{artist.email}</td>
+                                <td>{artist.nomeArtistico}</td>
+                                <td>{artist.biografia}</td>
+                                <td>{artist.anoFormacao}</td>
+                                <td className="details" onClick={ e => redirect(`/artist/details/${artist.email}`)}>Detalhes</td>
                             </tr>
                         )})}
-                        
                     </tbody>
                 </Table>
             </main>

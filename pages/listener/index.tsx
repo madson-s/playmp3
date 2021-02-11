@@ -2,7 +2,7 @@ import { InferGetStaticPropsType } from 'next'
 import { uniqueId } from 'lodash'
 import Head from 'next/head'
 
-import { redirect } from '../../services/redict'
+import { redirect } from '../../services/redirect'
 import api from '../../services/api'
 
 import NavBar from '../../components/NavBar'
@@ -50,7 +50,7 @@ export default function Listener({ listeners }: InferGetStaticPropsType<typeof g
                                 <td>{listener.nome}</td>
                                 <td>{listener.sobrenome}</td>
                                 <td>{listener.telefone}</td>
-                                <td className="details" onClick={ e => redirect(`/listener/details/${listener.Email}`)}>Detalhes</td>
+                                <td className="details" onClick={ e => redirect(`/listener/details/${listener.email}`)}>Detalhes</td>
                             </tr>
                         )})}
                     </tbody>

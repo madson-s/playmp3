@@ -1,19 +1,31 @@
 import Head from 'next/head'
 import { useState } from 'react'
 
+import api from '../../../services/api'
+import { redirect } from '../../../services/redirect'
+
 import NavBar from '../../../components/NavBar'
 import Form from '../../../components/Form'
 
 export default function NewPlaylist() {
     
-    const [ playlist, setPlaylist ] = useState({  Nome: '' })
+    const [ playlist, setPlaylist ] = useState({  nome: '' })
 
     function playlistUpdate(value) {
         setPlaylist( playlist => { return { ...playlist, ...value }})
     }
 
-    function handleCreate() {
-        console.log(playlist)
+    async function handleCreate() {
+        
+        const data = {
+            nome: playlist.nome,
+            ativo: true,
+            ouvintes: []
+        }
+
+        const response = await api.post('/playlists', data)
+
+        redirect('/playlist')
     }
 
     return (
@@ -28,7 +40,7 @@ export default function NewPlaylist() {
                 <Form>
                     <div className="input-field">
                         <label htmlFor="mail">Nome</label>
-                        <input id="mail" type="text" value={ playlist.Nome } onChange={ event => playlistUpdate({ Nome: event.target.value })}/>
+                        <input id="mail" type="text" value={ playlist.nome } onChange={ event => playlistUpdate({ nome: event.target.value })}/>
                     </div>
                     <button onClick={ handleCreate }>Adicionar</button>
                 </Form>

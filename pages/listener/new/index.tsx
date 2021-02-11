@@ -1,6 +1,9 @@
 import Head from 'next/head'
 import { useState } from 'react'
 
+import { redirect } from '../../../services/redirect'
+import api from '../../../services/api'
+
 import NavBar from '../../../components/NavBar'
 import Form from '../../../components/Form'
 
@@ -13,8 +16,10 @@ export default function Music() {
         setListener( listener => { return { ...listener, ...value } } )
     }
 
-    function handleCreate() {
-        console.log(listener)
+    async function handleCreate() {
+        const response = await api.post('/ouvintes', listener)
+        if(response.data.sucess)
+            redirect('/listener')
     }
 
     return (

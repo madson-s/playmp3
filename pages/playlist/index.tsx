@@ -1,13 +1,16 @@
 import { InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
+import { uniqueId } from 'lodash'
 
-import { redirect } from '../../services/redict'
+import { redirect } from '../../services/redirect'
 
 import NavBar from '../../components/NavBar'
 import Table from '../../components/Table'
+import api from '../../services/api'
 
 export const getStaticProps = async () => {
-    const playlists = [{  Id: 1, Nome: 'asdasd' }] 
+    const response = await api.get('/playlists')
+    const playlists = response.data.data
     return {
         props: { playlists }
     }
@@ -33,9 +36,9 @@ export default function Playlist({ playlists }: InferGetStaticPropsType<typeof g
                     </thead>
                     <tbody>
                         { playlists.map( playlist => { return (
-                            <tr>
-                                <td>{playlist.Nome}</td>
-                                <td className="details" onClick={ e => redirect(`/playlist/details/${playlist.Id}`)}>Detalhes</td>
+                            <tr key={uniqueId()}>
+                                <td>{playlist.nome}</td>
+                                <td className="details" onClick={ e => redirect(`/playlist/details/${playlist.nome}`)}>Detalhes</td>
                             </tr>
                         )})}
                         
