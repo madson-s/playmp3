@@ -49,6 +49,7 @@ export default function NewArtist() {
                     </div>
                     <button onClick={handleCreate}>Adicionar</button>
                 </Form>
+                <br></br>
             </main>
         </div>
     )

@@ -55,6 +55,7 @@ export default function Listener({ listeners }: InferGetStaticPropsType<typeof g
                         )})}
                     </tbody>
                 </Table>
+                <br></br>
             </main>
         </div>
     )

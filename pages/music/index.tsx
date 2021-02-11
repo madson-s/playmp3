@@ -45,6 +45,7 @@ export default function Music({ musics }: InferGetStaticPropsType<typeof getStat
                         )})}    
                     </tbody>
                 </Table>
+                <br></br>
             </main>
         </div>
     )

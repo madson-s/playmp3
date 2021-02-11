@@ -257,6 +257,7 @@ export default function Music() {
                         <button onClick={() => { handleUpdate() }}>Salvar</button>
                         <button className="secondary" onClick={() => {handleDelete()} }>{confirmDelete && "Confirmar" || "Excluir"}</button>
                     </div>
+                    <br></br>
                 </Form>
             </main>
         </div>

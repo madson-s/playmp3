@@ -140,6 +140,7 @@ export default function MusicDetails() {
                         <button className="secondary" onClick={() => {handleDelete()} }>{confirmDelete && "Confirmar" || "Excluir"}</button>
                     </div>
                 </Form>
+                <br></br>
             </main>
         </div>
     )

@@ -48,6 +48,7 @@ export default function Artist({ artists }: InferGetStaticPropsType<typeof getSt
                         )})}
                     </tbody>
                 </Table>
+                <br></br>
             </main>
         </div>
     )
