@@ -1,133 +1,56 @@
+import { InferGetStaticPropsType } from 'next'
 import Head from 'next/head'
-import Router from 'next/router'
-import '../../styles/Music.module.css'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { redirect } from '../../services/redict'
 
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import NavBar from '../../components/NavBar'
+import Table from '../../components/Table'
 
-function Sair() {
-    Router.push('/login')
+type Music = {
+    Id: number
+    Nome: string
+    Duracao: string
 }
 
-function CloseAdd() {
-    const form = document.querySelector(".form-container.add")
-    form.classList.add("inve")
+export const getStaticProps  = async () => {
+    const musics = [ { Id: 1, Nome: 'Nome', Duracao: '00:00' } ] 
+    console.log(musics)
+    return { 
+        props: { musics }
+    }
 }
 
-function OpenAdd() {
-    const form = document.querySelector(".form-container.add")
-    form.classList.remove("inve")
-}
-
-function CloseEdit() {
-    const form = document.querySelector(".form-container.edit")
-    form.classList.add("inve")
-}
-
-function OpenEdit() {
-    const form = document.querySelector(".form-container.edit")
-    form.classList.remove("inve")
-}
-
-function MusicItem (){
+export default function Music({ musics }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
-        <div className="music-content" onClick={OpenEdit}>
-            <div className="id">01</div>
-            <div className="name">Nome da música</div>
-            <div className="duration">00:00</div>                  
-        </div>
-    )
-}
-
-export default function Music() {
-    return (
-        
         <div className="music">
             <Head>
-                <title>Musics</title>
+                <title>Play.mp3</title>
             </Head>
             <header>
-            <div className="container">
-                <h3>Play.mp3</h3>
-                <div className="icon" onClick={Sair}>Sair</div>
-                </div>
+                <NavBar title={"Lista de Músicas"} active={[false, true, false, false, false]} btnUrl="/music/new" btnValue="Nova Música"/>
             </header>
-            <div className="nav-bar">
-                <div className="container">
-
-                </div>
-            </div>
             <main>
-                <div className="container">
-                    <div className="music-list">
-                        <div className="add-music" onClick={OpenAdd}>
-                            ADICIONAR NOVA MUSICA            
-                        </div>
-
-                        <div className="list-container">
-                            <div className="list-header">
-                                <div className="id">ID</div>
-                                <div className="name">NAME</div>
-                                <div className="duration">DURATION</div>                    
-                            </div>
-                            
-                            <MusicItem></MusicItem>
-
-                            <MusicItem></MusicItem>
-
-                            <MusicItem></MusicItem>
-
-                            <MusicItem></MusicItem>
-
-                        </div>
-                        
-                    </div>
-                </div>
+                <Table>
+                    <thead>
+                        <tr>
+                            <td>Id</td>
+                            <td>Nome</td>
+                            <td>Duração</td>
+                            <td className="details">Detalhes</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {musics.map( music => { return (
+                            <tr>
+                                <td>{music.Id}</td>
+                                <td>{music.Nome}</td>
+                                <td>{music.Duracao}</td>
+                                <td className="details" onClick={ e => redirect(`/music/details/${music.Id}`)}>Detalhes</td>
+                            </tr>
+                        )})}    
+                    </tbody>
+                </Table>
             </main>
-            <div className="form-container inve add">
-                <div className="shadow"></div>
-                <div className="form">
-                    <div className="icon" onClick={CloseAdd}>
-                        <i><FontAwesomeIcon icon={faTimes} /></i>
-                    </div>
-                    <h2>Adicionar Música</h2>
-                    <div className="input-field">
-                        <i></i>
-                        <input type="text" placeholder="Nome"/>
-                    </div>
-                    
-                    <div className="input-field">
-                    <i></i>
-                        <input type="text" placeholder="Duração"/>
-                    </div>
-                    <div className="btn">Adicionar</div>
-                </div>
-            </div>
-
-            <div className="form-container inve edit">
-                <div className="shadow"></div>
-                <div className="form">
-                    <div className="icon" onClick={CloseEdit}>
-                        <i><FontAwesomeIcon icon={faTimes} /></i>
-                    </div>
-                    <h3>Editar Música</h3>
-                    <div className="input-field">
-                        <i></i>
-                        <input type="text" value="Nome da música"/>
-                    </div>
-                    
-                    <div className="input-field" >
-                    <i></i>
-                        <input type="text" value="00:00"/>
-                    </div>
-                    <div className="bnt-content">
-                        <div className="btn">Alterar</div>
-                        <div className="btn transparent">Remover</div>
-                    </div>
-                    
-                </div>
-            </div>
         </div>
     )
 }
