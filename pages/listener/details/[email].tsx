@@ -163,7 +163,7 @@ export default function Music() {
                 <Form>
                     <div className="input-field">
                         <label htmlFor="mail">E-mail</label>
-                        <input id="mail" type="text" value={listener.email} onChange={ event => musicUpdate({email: event.target.value})}/>
+                        <input id="mail" type="text" value={listener.email} disabled/>
                     </div>
                     <div className="input-field">
                         <label htmlFor="name">Nome</label>
