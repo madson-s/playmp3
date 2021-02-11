@@ -50,6 +50,7 @@ export default function Music() {
                     </div>
                     <button onClick={handleCreate}>Adicionar</button>
                 </Form>
+                <br></br>
             </main>
         </div>
     )

@@ -147,6 +147,7 @@ export default function NewArtist() {
                         <button className="secondary" onClick={() => {handleDelete()} }>{confirmDelete && "Confirmar" || "excluir"}</button>
                     </div>
                 </Form>
+                <br></br>
             </main>
         </div>
     )

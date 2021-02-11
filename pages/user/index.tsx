@@ -51,6 +51,7 @@ export default function User({ users }: InferGetStaticPropsType<typeof getStatic
                         
                     </tbody>
                 </Table>
+                <br></br>
             </main>
         </div>
     )

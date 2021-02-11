@@ -44,6 +44,7 @@ export default function NewPlaylist() {
                     </div>
                     <button onClick={ handleCreate }>Adicionar</button>
                 </Form>
+                <br></br>
             </main>
         </div>
     )

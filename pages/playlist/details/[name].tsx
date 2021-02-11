@@ -125,6 +125,7 @@ export default function NewPlaylist() {
                         <button className="secondary" onClick={() => {handleDelete()} }>{confirmDelete && "Confirmar" || "Excluir"}</button>
                     </div>
                 </Form>
+                <br></br>
             </main>
         </div>
     )

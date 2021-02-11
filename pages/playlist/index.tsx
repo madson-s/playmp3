@@ -44,6 +44,7 @@ export default function Playlist({ playlists }: InferGetStaticPropsType<typeof g
                         
                     </tbody>
                 </Table>
+                <br></br>
             </main>
         </div>
     )
