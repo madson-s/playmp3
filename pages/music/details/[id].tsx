@@ -137,7 +137,7 @@ export default function MusicDetails() {
                     <br></br>
                     <div className="btn-content">
                         <button onClick={() => { handleUpdate() }}>Salvar</button>
-                        <button className="secondary" onClick={() => { handleDelete() }}>Excluir</button>
+                        <button className="secondary" onClick={() => {handleDelete()} }>{confirmDelete && "Confirmar" || "Excluir"}</button>
                     </div>
                 </Form>
             </main>
